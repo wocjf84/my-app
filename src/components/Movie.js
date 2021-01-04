@@ -15,13 +15,13 @@ function Movie(props) {
     });
 
     return (
-        <Link
-            to={{
-                pathname:"/movie-detail",
-                state: {movieData}
-            }}
-            >
-            <div className="movie">
+        <div className="movie">
+            <Link
+                to={{
+                    pathname:"/movie-detail",
+                    state: {movieData}
+                }}
+                >
                 <img src={movieData.medium_cover_image} alt={movieData.title} title={movieData.title}></img>
                 <div className="movie__data">
                     <h3 className="movie__title">{movieData.title}</h3>
@@ -33,8 +33,8 @@ function Movie(props) {
                     </ul>
                     <p className="movie__summary">{summary.slice(0, 140)}...</p>
                 </div>
-            </div>
-        </Link>
+           </Link>
+        </div>
     )
 }
 
