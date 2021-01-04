@@ -11,7 +11,6 @@ export default class Home extends React.Component {
 
   state = {
     movies : [],
-    page : 0,
     isLoading : true,
   }
 
@@ -28,30 +27,8 @@ export default class Home extends React.Component {
     this.getMovies();
   }
 
-  OnClickPrevPage = () =>
-  {
-    this.setState( obj =>
-      (
-        {
-          page : obj.page > 0 ? obj.page - 1 : obj.movies.length - 1
-        }
-      )
-    );
-  };
-
-  OnClickNextPage = () =>
-  {
-    this.setState( obj =>
-      (
-        {
-          page : obj.page + 1 < obj.movies.length ? obj.page + 1 : 0
-        }
-      )
-    );
-  };
-
   render() {
-    const { page, isLoading, movies } = this.state;
+    const { isLoading, movies } = this.state;
     return (
       <section className="container">
         {isLoading ? (
@@ -80,8 +57,6 @@ export default class Home extends React.Component {
           }
           </div>
         )}
-        <button className="prevButton" onClick={this.OnClickPrevPage}>이전</button>
-        <button className="nextButton" onClick={this.OnClickNextPage}>다음</button>
       </section>
     )
   }
